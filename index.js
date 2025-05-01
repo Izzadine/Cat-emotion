@@ -20,6 +20,16 @@ function getCatEmotionArray(cats) {
   return catEmotions;
 }
 
+emotionRadios.addEventListener("change", higghtLightOptioon);
+
+function higghtLightOptioon(e) {
+  const radios = document.getElementsByClassName("radio");
+  for (let radio of radios) {
+    radio.classList.remove("highlight");
+  }
+  document.getElementById(e.target.id).parentElement.classList.add("highlight");
+}
+
 function getMatchingCatsArray(){
     if(document.querySelector('input[type="radio"]:checked')){
      const selectedEmotion = document.querySelector('input[type="radio"]:checked').value;
@@ -85,15 +95,7 @@ function renderEmotionsRation(cats) {
   }
 }
 
-emotionRadios.addEventListener("change", higghtLightOptioon);
 
-function higghtLightOptioon(e) {
-  const radios = document.getElementsByClassName("radio");
-  for (let radio of radios) {
-    radio.classList.remove("highlight");
-  }
-  document.getElementById(e.target.id).parentElement.classList.add("highlight");
-}
 
 getImageBtn.addEventListener("click", renderCat);
 
